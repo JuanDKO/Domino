@@ -21,7 +21,13 @@ public class Ficha {
     public Ficha inversa(){
         return new Ficha(num2,num1);
     }
-    
+
+    /** La clase determina si la fiche en cuestión es colocable en el tablero
+     * Esto sucede si alguno de los dos numeros de la ficha coincide con el primero o ultimo de los colocados en la mesa
+     *
+     * @param mesa es la mesa en la que se quiere colocar la ficha en cuestión
+     * @return devuelve true si la ficha es colocable y flase si no lo es
+     */
     public boolean esColocable(Mesa mesa){
         boolean colocable=false;
         if(num1==mesa.getPrimero().getNum1() || num2==mesa.getPrimero().getNum1() ||

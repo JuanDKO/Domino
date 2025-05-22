@@ -13,7 +13,11 @@ public class Jugador {
         array = new LinkedList<Ficha>();
         mano=false;
     }
-    
+
+    /**
+     *
+     * @param f un objeto ficha que se añade a la mano del jugador
+     */
     public void anadirFicha(Ficha f){
         array.add(f);
     }
@@ -29,15 +33,22 @@ public class Jugador {
     public boolean esMano(){
         return mano;
     }
-    
+
+    /**Determina si el jugador tiene o no fichas para jugar
+     *
+     * @return devuelve true si el jugador no tiene fichas y false cuando si tiene
+     */
     public boolean tieneFichas(){
         return !array.isEmpty();
     }
-    
 
+    /**Esta clase determina si el jugador posee alguna ficha que se pueda jugar en el momento
+     *
+     * @param mesa es el objeto mesa en el que el jugador esta jugando
+     * @return Devuevle true cuando alguna de las fichas es jugable y flase cuando ninguna lo es
+     */
     public boolean puedeJugar (Mesa mesa){
         boolean res=false;
-
         if(!mesa.mesaVacia()){
             for(Ficha i : array){
                 if(i.esColocable(mesa)){
@@ -51,8 +62,12 @@ public class Jugador {
 
         return res;
     }
-    
 
+    /** Determina cuales son las fichas que el jugador puede jugar en el momento
+     *
+     * @param mesa es el objeto mesa en el que el jugador esta jugando
+     * @return devuelve una lista con las fichas que se pueden jugar en el momento
+     */
     public List<Ficha> fichasJugables(Mesa mesa){
         List<Ficha> jugables = new LinkedList<Ficha>();
         if(mesa.mesaVacia()){
@@ -67,8 +82,11 @@ public class Jugador {
         }
         return jugables;
     }
-    
 
+    /** Contabiliza la cantidad de puntos que el jugador ha obtenido
+     *
+     * @return devuelve la suma de los puntos de las caras de las fichas
+     */
     public int sumarPuntos(){
         int suma=0;
         for(Ficha i : array){
@@ -77,7 +95,10 @@ public class Jugador {
         }
         return suma;
     }
-    
+
+    /** Muestra por pantalla las fichas que el jugador posee ahora mismo.
+     *
+     */
     public void mostrarFichas(){
         for(Ficha i : array){
             System.out.print(i.toString());
