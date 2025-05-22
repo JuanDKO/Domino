@@ -19,7 +19,13 @@ public class Mesa {
     public Ficha getUltimo(){
         return m.getLast();
     }
-    
+
+    /**
+     *
+     * @param j
+     * @param f
+     * @return
+     */
     public boolean insertarPrincipio(Jugador j, Ficha f){
         boolean colocada=false;
         if(isPosibleAlPrincipio(f)){
@@ -54,10 +60,19 @@ public class Mesa {
         return colocada;
     }
 
+    /** Te indica el contador actual
+     *
+     * @return devuelve el contador de la mesa
+     */
     public int[] getContador() {
         return contador;
     }
 
+    /** Te indica si una ficha es posible colocarla al inicio
+     *
+     * @param aux es la ficha que se busca comprobar
+     * @return devuelve true si
+     */
     public boolean isPosibleAlPrincipio(Ficha aux) {
         return this.mesaVacia()
                 || aux.getNum1() == getPrimero().getNum1()
@@ -70,6 +85,10 @@ public class Mesa {
                 || aux.getNum2()==getUltimo().getNum2();
     }
 
+    /** Te indica si la mesa se encuentra vacia
+     *
+     * @return
+     */
     public boolean mesaVacia(){
         return m.isEmpty();
     }
