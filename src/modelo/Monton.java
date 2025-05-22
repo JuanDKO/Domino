@@ -15,13 +15,21 @@ public class Monton {
             }
         }
     }
-    
+
+    /** Saca una ficha aleatoria del monton
+     *
+     * @return devuelve el monton quitando la ficha extraida
+     */
     public Ficha extraerRandom(){
         Random rand = new Random();
         int valor = rand.nextInt(m.size());
         return m.remove(valor);
     }
-    
+
+    /** Te indica si el monton esta vacio de fichas
+     *
+     * @return devuelve true si esta vacio y false si no lo esta
+     */
     public boolean esVacio(){
         return m.isEmpty();
     }
