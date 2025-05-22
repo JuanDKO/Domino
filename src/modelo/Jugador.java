@@ -104,7 +104,12 @@ public class Jugador {
             System.out.print(i.toString());
         }
     }
-    
+
+    /** Elimina una ficha en particular de la mano del jugador
+     *
+     * @param f es la ficha que se va a eliminar de la mano
+     * @return devuvelve la lista de fichas sin la ficha eliminada
+     */
     public boolean eliminaFicha(Ficha f){
         return array.remove(f);
     }
