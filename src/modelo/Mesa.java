@@ -20,11 +20,11 @@ public class Mesa {
         return m.getLast();
     }
 
-    /**
+    /** Te inserta la ficha de un jugador en el inicio yen caso de que la mesa este vacia coloca esa ficha como primera
      *
-     * @param j
-     * @param f
-     * @return
+     * @param j es el jugador al que le pertenece la ficha que se va a colocar
+     * @param f es la fucha que se va a colocar en el inicio
+     * @return devuelve true si se ha colocado correctamente y false si no se ha podido colocar
      */
     public boolean insertarPrincipio(Jugador j, Ficha f){
         boolean colocada=false;
@@ -42,7 +42,14 @@ public class Mesa {
         }
         return colocada;
     }
-    
+
+    /** Te inserta una ficha de un jugador determinado en el final de la linea
+     *
+     * @param j es el jugador del cual se va a insertar la ficha
+     * @param f es la ficha que el jugador a elejido para insertar al final
+     * @return devuelve true si la ficha se ha colocado correctamente
+     * y fdlse si la ficha no era posible colocarse en el final
+     */
     public boolean insertarFinal(Jugador j, Ficha f) {
         boolean colocada=false;
         if(isPosibleAlFinal(f)){
@@ -71,7 +78,8 @@ public class Mesa {
     /** Te indica si una ficha es posible colocarla al inicio
      *
      * @param aux es la ficha que se busca comprobar
-     * @return devuelve true si
+     * @return devuelve true si cualquiera de los dos numeros de la ficha es compatible con el numero del inicio
+     * y false en caso de que ninguno sea compatible
      */
     public boolean isPosibleAlPrincipio(Ficha aux) {
         return this.mesaVacia()
@@ -79,6 +87,12 @@ public class Mesa {
                 || aux.getNum2() == getPrimero().getNum1();
     }
 
+    /**Te indica si la ficha seleccionada puede coloarse al final de la lista
+     *
+     * @param aux es la ficha que se quiere comprobar
+     * @return devuelve true en caso de que alguno de los dos numeros de la ficha coincida con el final
+     * y false en caso contrario
+     */
     public boolean isPosibleAlFinal(Ficha aux) {
         return this.mesaVacia()
                 || aux.getNum1()==getUltimo().getNum2()
@@ -87,7 +101,7 @@ public class Mesa {
 
     /** Te indica si la mesa se encuentra vacia
      *
-     * @return
+     * @return te devuelvw true en caso de que la mesa este vacia y false en caso de que no
      */
     public boolean mesaVacia(){
         return m.isEmpty();
