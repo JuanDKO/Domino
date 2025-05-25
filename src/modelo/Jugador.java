@@ -14,7 +14,7 @@ public class Jugador {
         mano=false;
     }
 
-    /**
+    /** Te añade una ficha a la mano
      *
      * @param f un objeto ficha que se añade a la mano del jugador
      */
